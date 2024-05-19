@@ -1,71 +1,114 @@
-###################
-What is CodeIgniter
-###################
+==================
+Product Dashboard
+==================
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+Product Dashboard is a web application built using CodeIgniter. This application allows users to register, log in, edit their profiles, and interact with products by creating and replying to reviews. The first user to register will be designated as the admin, who has additional privileges such as creating, updating, and deleting products.
 
-*******************
-Release Information
-*******************
+Features
+========
 
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
+- **User Registration**: Users can create an account.
+- **User Login**: Users can log into their accounts.
+- **Edit User Profile**: Users can update their profile information.
+- **Admin Privileges**: The first registered user is the admin and can manage products.
+- **Product Management**:
+  - Admin can create new products.
+  - Admin can update existing products.
+  - Admin can delete products.
+- **Reviews**:
+  - Users can create reviews for products.
+  - Users can reply to existing reviews.
+  - Users can view product information and reviews.
+- **Form Validations**: All forms include robust validation to ensure data integrity.
+- **MySQL Database**: User information is saved in a MySQL database.
 
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
-
-*******************
-Server Requirements
-*******************
-
-PHP version 5.6 or newer is recommended.
-
-It should work on 5.3.7 as well, but we strongly advise you NOT to run
-such old versions of PHP, because of potential security and performance
-issues, as well as missing features.
-
-************
 Installation
-************
+============
 
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+To install and run the Product Dashboard, follow these steps:
 
-*******
+1. **Clone the repository**:
+
+   .. code-block:: bash
+
+      git clone https://github.com/DreaUltimate/Product-dashboard.git
+
+2. **Navigate to the project directory**:
+
+   .. code-block:: bash
+
+      cd product-dashboard
+
+3. **Install dependencies**:
+   
+   - Ensure you have Composer installed. If not, download it from https://getcomposer.org/.
+   - Run the following command to install CodeIgniter dependencies:
+
+     .. code-block:: bash
+
+        composer install
+
+4. **Configure the application**:
+   
+   - Copy the `env` file to `.env` and configure your database settings.
+   - Set your database configuration in `.env`:
+
+     .. code-block:: ini
+
+        database.default.hostname = localhost
+        database.default.database = your_database_name
+        database.default.username = your_database_username
+        database.default.password = your_database_password
+        database.default.DBDriver = MySQLi
+
+   - Update the base URL and other configuration settings as needed in `app/Config/App.php`.
+
+5. **Run the database migrations**:
+
+   .. code-block:: bash
+
+      php spark migrate
+
+6. **Run the application**:
+
+   .. code-block:: bash
+
+      php spark serve
+
+   The application will be available at `http://localhost:8080`.
+
+Usage
+=====
+
+Once the application is up and running, you can start using it as follows:
+
+1. **Register a new user**:
+   - Visit the registration page and create a new account. The first user to register will automatically be given admin privileges.
+
+2. **Log in**:
+   - Use your credentials to log in to the application.
+
+3. **Edit Profile**:
+   - Navigate to your profile page to edit your user information.
+
+4. **Manage Products (Admin only)**:
+   - As an admin, you can create, update, and delete products from the product management section.
+
+5. **Create and Reply to Reviews**:
+   - View product details and submit reviews.
+   - Reply to existing reviews to engage with other users.
+
+Form Validations
+================
+
+All forms in the application are equipped with comprehensive validation to ensure data integrity and user-friendly error messages.
+
+Contributing
+============
+
+Contributions are welcome! Please fork the repository and submit a pull request for review.
+
 License
-*******
+=======
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
-
-*********
-Resources
-*********
-
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
-
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
-
-***************
-Acknowledgement
-***************
-
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+This project is licensed under the MIT License. See the LICENSE file for details.
